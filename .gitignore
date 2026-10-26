@@ -1,0 +1,8 @@
+# Build output (elekloader writes MODDIR/out) and anything derived from a stock image
+out/
+*.syx
+*.bin
+*.elemod
+
+# macOS
+.DS_Store

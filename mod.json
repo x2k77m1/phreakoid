@@ -1,0 +1,22 @@
+{
+ "id": "phreakoid", "version": "1.0a", "ele3_version": "1.0a",
+ "license": "GPL-2.0-or-later",
+ "title": "PHREAKOID (Digitone machine)", "category": "Sound",
+ "author": "x2k",
+ "description": "PHREAKOID, a monophonic acid machine for the Digitone mk1 and Keys: a band-limited saw/square oscillator into the 303's four-pole ladder filter with its feedback highpass, a resonant filter envelope, accent by velocity, glide and a fixed amp envelope, on 16 borrowed stock SYN knobs (SYN1 A-H and SYN2 A-H) so p-locks, LFOs, presets and save work untouched. An integer port of the TB-303 voice in Open303 (MIT). It plays through the Digitone's own AMP envelope, filter, mixer and effects as FM does. A machine, not an effect: needs the machines mod and core-dn1 3.1.",
+ "device": "digitone-mk1", "os": "1.43",
+ "ports": {"1.44": {}},
+ "sources": ["engine.c", "overlay.c"],
+ "subscribe": [
+  {"event": "ev_tick", "fn": "phreakoid_tick", "order": 60},
+  {"event": "ev_draw", "fn": "phreakoid_draw", "order": 60},
+  {"event": "ev_key", "fn": "phreakoid_key_handler", "order": 60},
+  {"event": "ev_enc", "fn": "phreakoid_enc_handler", "order": 60}
+ ],
+ "contribute": [
+  {"to": "dn_machines", "order": 50, "data": "00000000",
+   "relocs": [[0, "abs32", "sym:phreakoid_machine", 0]]}
+ ],
+ "resources": {"names": ["dnmachine:100"], "core": "3.1"},
+ "requires": ["core", "machines"]
+}
